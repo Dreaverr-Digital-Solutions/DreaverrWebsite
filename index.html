@@ -1,0 +1,2783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreaverr Digital Solutions - Fast & Affordable Websites for Local Business</title>
+    <meta name="description" content="Transform your local business with a stunning, high-performance website. Built fast, priced right, designed to convert.">
+    <link rel="icon" type="image/png" href="images/r.png">
+    <link rel="apple-touch-icon" href="images/r.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-coral: #e65540;
+            --secondary-coral: #ff7a5c;
+            --dark-bg: #0a0a0a;
+            --dark-bg-alt: #222222;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-body: #666666;
+            --text-tertiary: #888888;
+            --neutral-bg: #f8f9fa;
+            --coral-gradient: linear-gradient(135deg, #e65540 0%, #ff7a5c 100%);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-body);
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100vw;
+            z-index: 1002;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            transition: var(--transition);
+            overflow: visible;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 1.25rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: visible;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: var(--primary-coral);
+            letter-spacing: -0.5px;
+        }
+
+        nav.scrolled .logo img {
+            height: 35px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-coral);
+        }
+
+        .btn-nav {
+            background: var(--coral-gradient);
+            color: var(--white);
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-nav:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(230, 85, 64, 0.3);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+            position: relative;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile menu backdrop */
+        .menu-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-backdrop.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-left: 2rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 2px solid var(--primary-coral);
+            color: var(--text-body);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lang-btn:hover {
+            border-color: var(--primary-coral);
+            color: var(--primary-coral);
+        }
+
+        .lang-btn.active {
+            background: var(--coral-gradient);
+            color: var(--white);
+            border-color: transparent;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            padding-top: 85px;
+            padding-bottom: 3rem;
+            background:
+                linear-gradient(180deg, rgba(248, 249, 250, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%),
+                radial-gradient(circle at 20% 50%, rgba(230, 85, 64, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 122, 92, 0.08) 0%, transparent 50%);
+            position: relative;
+            overflow: visible;
+        }
+
+        /* Animated gradient orb */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -15%;
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(230, 85, 64, 0.15) 0%, rgba(255, 122, 92, 0.08) 30%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 20s ease-in-out infinite;
+            filter: blur(60px);
+        }
+
+        /* Floating geometric shapes */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(230, 85, 64, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float-reverse 15s ease-in-out infinite;
+            filter: blur(40px);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(-30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(30px, 30px) scale(0.9);
+            }
+        }
+
+        @keyframes float-reverse {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(50px, 30px) scale(1.15);
+            }
+            66% {
+                transform: translate(-40px, -40px) scale(0.85);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.1);
+            }
+        }
+
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            position: relative;
+            padding-top: 1rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            position: relative;
+        }
+
+        .hero-text h1 span.highlight {
+            display: inline-block;
+        }
+
+        .hero-text h1 .highlight {
+            background: var(--coral-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-text h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-coral) 0%, var(--secondary-coral) 100%);
+            opacity: 0.2;
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .hero-text p {
+            font-size: 1.35rem;
+            color: var(--text-body);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            opacity: 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .hero-text p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 80%;
+            background: var(--coral-gradient);
+            border-radius: 2px;
+            opacity: 0.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.25rem;
+            opacity: 0;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.25rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--coral-gradient);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(230, 85, 64, 0.4), 0 0 40px rgba(230, 85, 64, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-coral);
+            border-color: var(--primary-coral);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-coral);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        /* Comparison container */
+        .visual-comparison {
+            position: relative;
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: stretch;
+            gap: 2rem;
+        }
+
+        /* VS Badge in center - as a flex item */
+        .vs-badge {
+            flex-shrink: 0;
+            align-self: center;
+            width: 70px;
+            height: 70px;
+            background: var(--coral-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--white);
+            box-shadow: 0 10px 40px rgba(230, 85, 64, 0.4);
+            z-index: 10;
+            border: 4px solid var(--white);
+            opacity: 0;
+            margin: 0 -35px;
+        }
+
+        /* Before side (Google Maps only) */
+        .comparison-side {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 1.5rem 1.65rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            position: relative;
+            opacity: 0;
+            min-height: 0;
+            overflow: visible;
+        }
+
+        .comparison-side.before {
+            border-color: rgba(239, 68, 68, 0.3);
+            box-shadow: 0 10px 40px rgba(239, 68, 68, 0.1);
+        }
+
+        .comparison-side.after {
+            border-color: rgba(34, 197, 94, 0.3);
+            box-shadow: 0 10px 40px rgba(34, 197, 94, 0.1);
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(230, 85, 64, 0.1);
+        }
+
+        .comparison-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            margin-bottom: 0.35rem;
+        }
+
+        .comparison-side.before .comparison-label {
+            color: #ef4444;
+        }
+
+        .comparison-side.after .comparison-label {
+            color: #22c55e;
+        }
+
+        .comparison-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.25;
+        }
+
+        /* Comparison items */
+        .comparison-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .comparison-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            padding: 0.7rem 0.85rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .comparison-item:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .comparison-side.before .comparison-item:hover {
+            box-shadow: 0 5px 20px rgba(239, 68, 68, 0.15);
+        }
+
+        .comparison-side.after .comparison-item:hover {
+            box-shadow: 0 5px 20px rgba(34, 197, 94, 0.15);
+        }
+
+        .item-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+
+        .comparison-side.before .item-icon {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .comparison-side.after .item-icon {
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .item-content {
+            flex: 1;
+        }
+
+        .item-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.15rem;
+        }
+
+        .item-desc {
+            font-size: 0.75rem;
+            color: var(--text-body);
+            line-height: 1.35;
+        }
+
+        /* Mock Google Maps listing visual */
+        .maps-mockup {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 0.75rem;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .maps-header {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .maps-icon {
+            width: 32px;
+            height: 32px;
+            background: #1a73e8;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .maps-info h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.1rem;
+        }
+
+        .maps-info p {
+            font-size: 0.68rem;
+            color: var(--text-tertiary);
+        }
+
+        .maps-stars {
+            color: #fbbf24;
+            font-size: 0.68rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .maps-limited {
+            font-size: 0.68rem;
+            color: #ef4444;
+            font-weight: 600;
+            text-align: center;
+            padding: 0.35rem 0.5rem;
+            background: rgba(239, 68, 68, 0.05);
+            border-radius: 5px;
+        }
+
+        /* Website preview mockup */
+        .website-preview {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .preview-header {
+            height: 18px;
+            background: linear-gradient(135deg, #e65540 0%, #ff7a5c 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 0.5rem;
+            gap: 0.25rem;
+        }
+
+        .preview-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .preview-content {
+            padding: 0.65rem;
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+        }
+
+        .preview-hero {
+            height: 26px;
+            background: var(--coral-gradient);
+            border-radius: 5px;
+            margin-bottom: 0.45rem;
+            opacity: 0.3;
+        }
+
+        .preview-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.35rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .preview-box {
+            height: 18px;
+            background: rgba(230, 85, 64, 0.1);
+            border-radius: 4px;
+        }
+
+        .preview-footer {
+            height: 13px;
+            background: #2d2d2d;
+            border-radius: 4px;
+        }
+
+        /* Decorative grid pattern overlay */
+        .hero-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(230, 85, 64, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(230, 85, 64, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        /* Animated decorative dots */
+        .hero-text::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -50px;
+            width: 100px;
+            height: 100px;
+            background:
+                radial-gradient(circle, var(--primary-coral) 2px, transparent 2px),
+                radial-gradient(circle, var(--secondary-coral) 2px, transparent 2px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.15;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        /* Accent line decoration */
+        .hero-text::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: -80px;
+            width: 4px;
+            height: 100px;
+            background: var(--coral-gradient);
+            border-radius: 2px;
+            opacity: 0.6;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #fff5f3 0%, #ffece8 100%);
+            position: relative;
+            border-top: 1px solid rgba(230, 85, 64, 0.15);
+            box-shadow: inset 0 10px 30px rgba(230, 85, 64, 0.03);
+        }
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            color: var(--text-dark);
+            margin-bottom: 1.25rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-body);
+        }
+
+        .services-icons-showcase {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            background: linear-gradient(135deg, #fff5f3 0%, #ffffff 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(230, 85, 64, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-icons-showcase img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--neutral-bg);
+            padding: 3rem;
+            border-radius: 25px;
+            transition: var(--transition);
+            opacity: 0;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: var(--white);
+            border-color: var(--primary-coral);
+            box-shadow: 0 20px 60px rgba(230, 85, 64, 0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--coral-gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-body);
+        }
+
+        /* Why Choose Us Section */
+        .why-us {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            border-top: 3px solid var(--primary-coral);
+            box-shadow: 0 -5px 40px rgba(230, 85, 64, 0.1);
+        }
+
+        .why-us::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 50px,
+                rgba(230, 85, 64, 0.02) 50px,
+                rgba(230, 85, 64, 0.02) 100px
+            );
+            pointer-events: none;
+        }
+
+        .why-us .section-header h2,
+        .why-us .section-header p {
+            color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (min-width: 1200px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: var(--transition);
+            opacity: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            background: rgba(230, 85, 64, 0.1);
+            border-color: var(--primary-coral);
+        }
+
+        .feature-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--coral-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-item p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* About/Trust Section */
+        .trust-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #ffece8 0%, #fff5f3 100%);
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(230, 85, 64, 0.2);
+            box-shadow: inset 0 10px 30px rgba(230, 85, 64, 0.04);
+        }
+
+        .trust-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(230, 85, 64, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .trust-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .trust-image {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(230, 85, 64, 0.2);
+        }
+
+        .trust-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .trust-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .trust-content h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .trust-content p {
+            font-size: 1.2rem;
+            color: var(--text-body);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .trust-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--coral-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-body);
+            font-weight: 600;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 8rem 0;
+            background: var(--neutral-bg);
+            border-top: 1px solid rgba(230, 85, 64, 0.15);
+            position: relative;
+        }
+
+        .pricing::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-coral) 50%, transparent 100%);
+            opacity: 0.3;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            opacity: 0;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary-coral);
+            box-shadow: 0 25px 70px rgba(230, 85, 64, 0.2);
+        }
+
+        .pricing-card.featured {
+            background: var(--coral-gradient);
+            color: var(--white);
+            transform: scale(1.05);
+            border: none;
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.08) translateY(-15px);
+        }
+
+        .pricing-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .pricing-card.featured h3,
+        .pricing-card.featured .price,
+        .pricing-card.featured ul {
+            color: var(--white);
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary-coral);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            padding: 0.75rem 0;
+            color: var(--text-body);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .pricing-card.featured ul li {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .pricing-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-coral);
+            font-weight: 900;
+            font-size: 1.25rem;
+        }
+
+        .pricing-card.featured ul li::before {
+            color: var(--white);
+        }
+
+        .pricing-card .btn-primary {
+            width: 100%;
+            text-align: center;
+        }
+
+        .pricing-card.featured .btn-primary {
+            background: var(--white);
+            color: var(--primary-coral);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #e65540 0%, #ff7a5c 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 -10px 50px rgba(230, 85, 64, 0.3);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 100px,
+                    rgba(255, 255, 255, 0.03) 100px,
+                    rgba(255, 255, 255, 0.03) 200px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 100px,
+                    rgba(255, 255, 255, 0.03) 100px,
+                    rgba(255, 255, 255, 0.03) 200px
+                );
+            pointer-events: none;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+        }
+
+        .cta-content p {
+            font-size: 1.35rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+        }
+
+        .cta-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-form input {
+            flex: 1;
+            padding: 1.25rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            background: transparent;
+            color: var(--white);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .cta-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .cta-form input:focus {
+            outline: none;
+            border-color: var(--primary-coral);
+            box-shadow: 0 0 0 4px rgba(230, 85, 64, 0.2);
+        }
+
+        .cta-form button {
+            padding: 1.25rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            background: var(--coral-gradient);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cta-form button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(230, 85, 64, 0.4);
+        }
+
+        .cta-extras {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .cta-extras p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .cta-contact {
+            margin-top: 3rem;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+            padding: 2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            min-height: 180px;
+            justify-content: center;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--primary-coral);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(230, 85, 64, 0.4);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-icon svg {
+            width: 26px;
+            height: 26px;
+            color: var(--white);
+        }
+
+        .contact-item:hover .contact-icon {
+            background: var(--primary-coral);
+            transform: scale(1.1);
+        }
+
+        .phone-icon {
+            background: rgba(52, 168, 83, 0.2);
+        }
+
+        .contact-item:hover .phone-icon {
+            background: #34a853;
+        }
+
+        .whatsapp-icon {
+            background: rgba(37, 211, 102, 0.2);
+        }
+
+        .contact-item:hover .whatsapp-icon {
+            background: #25D366;
+        }
+
+        .email-icon {
+            background: rgba(234, 67, 53, 0.2);
+        }
+
+        .contact-item:hover .email-icon {
+            background: #EA4335;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .contact-value {
+            color: var(--white);
+            font-size: 0.95rem;
+            font-weight: 600;
+            word-break: break-word;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg-alt);
+            color: var(--text-tertiary);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 2px solid var(--primary-coral);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-coral) 50%, transparent 100%);
+            box-shadow: 0 0 20px var(--primary-coral);
+        }
+
+        .footer-logo {
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            width: auto;
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+
+        .footer-logo img:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-tertiary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-coral);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-visual {
+                height: auto;
+                margin-top: 3rem;
+            }
+
+            .visual-comparison {
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            .vs-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 1.25rem;
+                margin: -30px 0;
+            }
+
+            .comparison-side {
+                min-height: 500px;
+                width: 100%;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .services-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            nav {
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-container {
+                position: relative;
+                padding: 0.85rem 1rem;
+                width: 100%;
+                max-width: 100vw;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .logo {
+                flex-shrink: 0;
+                order: 1;
+                z-index: 1003;
+            }
+
+            .logo img {
+                height: 32px;
+            }
+
+            .nav-links {
+                order: 4;
+            }
+
+            .lang-switcher {
+                order: 2;
+                display: flex;
+                gap: 0.3rem;
+                z-index: 1003;
+                position: relative;
+                margin-left: auto;
+                margin-right: 0.5rem;
+            }
+
+            .lang-btn {
+                padding: 0.35rem 0.6rem;
+                font-size: 0.7rem;
+                flex-shrink: 0;
+                min-width: 38px;
+                border-width: 1.5px;
+            }
+
+            .lang-btn.active {
+                border-width: 2px;
+            }
+
+            .mobile-menu-toggle {
+                order: 3;
+                display: flex;
+                z-index: 1003;
+                position: relative;
+                margin-left: 0;
+            }
+
+            /* Mobile Menu Panel */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                max-width: 85vw;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 80px 2rem 2rem;
+                gap: 0;
+                box-shadow: -10px 0 50px rgba(0, 0, 0, 0.3);
+                z-index: 1001;
+                align-items: stretch;
+                overflow-y: auto;
+                transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .nav-links.active {
+                right: 0 !important;
+            }
+
+            .nav-links li {
+                width: 100%;
+                display: block;
+                margin: 0;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 0;
+                font-size: 1.1rem;
+                border-bottom: 1px solid rgba(230, 85, 64, 0.1);
+                color: var(--text-dark);
+                font-weight: 600;
+                width: 100%;
+            }
+
+            .nav-links .btn-nav {
+                text-align: center;
+                margin-top: 1rem;
+                padding: 0.75rem 1.5rem;
+                border-radius: 50px;
+                background: var(--coral-gradient);
+                color: var(--white) !important;
+                border-bottom: none;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+                padding-left: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-item {
+                padding: 1.25rem;
+            }
+
+            .contact-icon {
+                font-size: 1.75rem;
+            }
+
+            .contact-value {
+                font-size: 1rem;
+            }
+
+            /* Hide decorative elements on mobile */
+            .hero-text::before,
+            .hero-text::after {
+                display: none;
+            }
+
+            .hero-container::before {
+                opacity: 0.2;
+            }
+
+            .visual-comparison {
+                gap: 2rem;
+            }
+
+            .comparison-side {
+                padding: 1.5rem;
+                min-height: auto;
+            }
+
+            .comparison-item {
+                padding: 0.75rem;
+                gap: 0.75rem;
+            }
+
+            .item-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .item-title {
+                font-size: 0.85rem;
+            }
+
+            .item-desc {
+                font-size: 0.75rem;
+            }
+
+            .cta-form {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 1.25rem 1rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .trust-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .trust-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="menu-backdrop"></div>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="images/logo_dreaverr.png" alt="Dreaverr">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#services" data-i18n="nav.services">Services</a></li>
+                <li><a href="#why-us" data-i18n="nav.whyUs">Why Us</a></li>
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#cta" class="btn-nav" data-i18n="nav.getStarted">Get Started</a></li>
+            </ul>
+
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="de">DE</button>
+            </div>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>
+                    <span data-i18n="hero.title1">Fast & Affordable</span><br>
+                    <span class="highlight" data-i18n="hero.title2">Websites</span><br>
+                    <span data-i18n="hero.title3">for Local Business</span><br>
+                </h1>
+                <p data-i18n="hero.subtitle">Transform your local business with a stunning, high-performance website. Built fast, priced right, designed to convert.</p>
+                <div class="hero-buttons">
+                    <a href="#cta" class="btn-primary" data-i18n="hero.cta1">Start Your Project</a>
+                    <a href="#services" class="btn-secondary" data-i18n="hero.cta2">View Services</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-comparison">
+                    <!-- Before: Google Maps Only -->
+                    <div class="comparison-side before">
+                        <div class="comparison-header">
+                            <div class="comparison-label" data-i18n="comparison.before.label">Without a Website</div>
+                            <div class="comparison-title" data-i18n="comparison.before.title">Just Google Maps</div>
+                        </div>
+
+                        <!-- Google Maps Mockup -->
+                        <div class="maps-mockup">
+                            <div class="maps-header">
+                                <div class="maps-icon">📍</div>
+                                <div class="maps-info">
+                                    <h4 data-i18n="comparison.before.maps.business">Your Business</h4>
+                                    <p data-i18n="comparison.before.maps.type">Local business</p>
+                                </div>
+                            </div>
+                            <div class="maps-stars">★★★★☆ 4.2</div>
+                            <div class="maps-limited" data-i18n="comparison.before.maps.warning">⚠ Limited info only</div>
+                        </div>
+
+                        <!-- Pain Points List -->
+                        <div class="comparison-list">
+                            <div class="comparison-item">
+                                <div class="item-icon">❌</div>
+                                <div class="item-content">
+                                    <div class="item-title" data-i18n="comparison.before.pain1.title">No Control</div>
+                                    <div class="item-desc" data-i18n="comparison.before.pain1.desc">Limited to basic info, can't showcase your brand</div>
+                                </div>
+                            </div>
+
+                            <div class="comparison-item">
+                                <div class="item-icon">📉</div>
+                                <div class="item-content">
+                                    <div class="item-title" data-i18n="comparison.before.pain2.title">Lost Customers</div>
+                                    <div class="item-desc" data-i18n="comparison.before.pain2.desc">70% of people check websites before visiting</div>
+                                </div>
+                            </div>
+
+                            <div class="comparison-item">
+                                <div class="item-icon">🚫</div>
+                                <div class="item-content">
+                                    <div class="item-title" data-i18n="comparison.before.pain3.title">No Trust Building</div>
+                                    <div class="item-desc" data-i18n="comparison.before.pain3.desc">Can't share testimonials or portfolio</div>
+                                </div>
+                            </div>
+
+                            <div class="comparison-item">
+                                <div class="item-icon">💤</div>
+                                <div class="item-content">
+                                    <div class="item-title" data-i18n="comparison.before.pain4.title">24/7 Unavailable</div>
+                                    <div class="item-desc" data-i18n="comparison.before.pain4.desc">Missing leads while you sleep</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VS Badge -->
+                    <div class="vs-badge">VS</div>
+
+                    <!-- After: With Website -->
+                    <div class="comparison-side after">
+                        <div class="comparison-header">
+                            <div class="comparison-label" data-i18n="comparison.after.label">With Your Website</div>
+                            <div class="comparison-title" data-i18n="comparison.after.title">Professional Online Presence</div>
+                        </div>
+
+                        <!-- Website Preview Mockup -->
+                        <div class="website-preview">
+                            <div class="preview-header">
+                                <div class="preview-dot"></div>
+                                <div class="preview-dot"></div>
+                                <div class="preview-dot"></div>
+                            </div>
+                            <div class="preview-content">
+                                <div class="preview-hero"></div>
+                                <div class="preview-section">
+                                    <div class="preview-box"></div>
+                                    <div class="preview-box"></div>
+                                    <div class="preview-box"></div>
+                                    <div class="preview-box"></div>
+                                </div>
+                                <div class="preview-footer"></div>
+                            </div>
+                        </div>
+
+                        <!-- Benefits List -->
+                        <div class="comparison-list">
+                            <div class="comparison-item">
+                                <div class="item-icon">✅</div>
+                                <div class="item-content">
+                                    <div class="item-title" data-i18n="comparison.after.benefit1.title">Full Control</div>
+                                    <div class="item-desc" data-i18n="comparison.after.benefit1.desc">Your brand, your message, your way</div>
+                                </div>
+                            </div>
+
+                            <div class="comparison-item">
+                                <div class="item-icon">📈</div>
+                                <div class="item-content">
+                                    <div class="item-title" data-i18n="comparison.after.benefit2.title">More Customers</div>
+                                    <div class="item-desc" data-i18n="comparison.after.benefit2.desc">Show up in Google, capture more leads</div>
+                                </div>
+                            </div>
+
+                            <div class="comparison-item">
+                                <div class="item-icon">⭐</div>
+                                <div class="item-content">
+                                    <div class="item-title" data-i18n="comparison.after.benefit3.title">Build Trust</div>
+                                    <div class="item-desc" data-i18n="comparison.after.benefit3.desc">Showcase work, share reviews, prove expertise</div>
+                                </div>
+                            </div>
+
+                            <div class="comparison-item">
+                                <div class="item-icon">🔄</div>
+                                <div class="item-content">
+                                    <div class="item-title" data-i18n="comparison.after.benefit4.title">24/7 Working</div>
+                                    <div class="item-desc" data-i18n="comparison.after.benefit4.desc">Your website sells while you sleep</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="services.title">What We Do Best</h2>
+                <p data-i18n="services.subtitle">Full-service web solutions tailored for local businesses. From concept to launch, we handle everything so you can focus on what you do best.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3 data-i18n="services.service1.title">Website Development</h3>
+                    <p data-i18n="services.service1.desc">Custom-built, responsive websites that look stunning on every device. Fast loading times and smooth user experiences guaranteed.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3 data-i18n="services.service2.title">Modern Design</h3>
+                    <p data-i18n="services.service2.desc">Eye-catching, contemporary designs that make your business memorable. Stand out from competitors with premium aesthetics.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3 data-i18n="services.service3.title">Mobile First</h3>
+                    <p data-i18n="services.service3.desc">Every website is built mobile-first. Your customers can find you anywhere, on any device, with pixel-perfect responsiveness.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3 data-i18n="services.service4.title">Lightning Performance</h3>
+                    <p data-i18n="services.service4.desc">Optimized for speed and search engines. Fast websites rank better and convert more visitors into customers.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3 data-i18n="services.service5.title">Easy Updates</h3>
+                    <p data-i18n="services.service5.desc">Simple content management so you can update your site anytime. No technical knowledge required to keep content fresh.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3 data-i18n="services.service6.title">Secure & Reliable</h3>
+                    <p data-i18n="services.service6.desc">Built with security in mind. SSL certificates, regular backups, and monitoring to keep your site safe 24/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="whyUs.title">Why Local Businesses Choose Dreaverr</h2>
+                <p data-i18n="whyUs.subtitle">We understand what local businesses need to succeed online. Here's what sets us apart.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3 data-i18n="whyUs.feature1.title">Delivered Fast</h3>
+                    <p data-i18n="whyUs.feature1.desc">Most websites completed in 1-2 weeks. We work efficiently without compromising quality, getting you online quickly.</p>
+                </div>
+                <div class="feature-item">
+                    <h3 data-i18n="whyUs.feature3.title">Local Focus</h3>
+                    <p data-i18n="whyUs.feature3.desc">We specialize in local business websites. From restaurants to retailers, we know what works in your market.</p>
+                </div>
+                <div class="feature-item">
+                    <h3 data-i18n="whyUs.feature4.title">Ongoing Support</h3>
+                    <p data-i18n="whyUs.feature4.desc">We're here even after launch. Need updates? Have questions? Get responsive support when you need it most.</p>
+                </div>
+                <div class="feature-item">
+                    <h3 data-i18n="whyUs.feature5.title">Results, Not Empty Promises</h3>
+                    <p data-i18n="whyUs.feature5.desc">We measure what counts: More inquiries, more calls, more customers. If it doesn't work, we'll fix it – for free.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust/About Section -->
+    <section class="trust-section" id="about">
+        <div class="trust-container">
+            <div class="trust-image">
+                <img src="images/dreaverr_team.png" alt="Dreaverr Professional Team">
+            </div>
+            <div class="trust-content">
+                <h2 data-i18n="trust.title">Built by Experts Who Care</h2>
+                <p data-i18n="trust.desc1">We're not just developers—we're business owners who understand what it takes to succeed online. Every website we build is crafted with the same care and attention we'd give our own business.</p>
+                <p data-i18n="trust.desc2">Our team combines technical expertise with real-world business knowledge to deliver websites that don't just look good—they drive results.</p>
+                <div class="trust-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-i18n="trust.stat1.number">300+</div>
+                        <div class="stat-label" data-i18n="trust.stat1.label">successful projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-i18n="trust.stat2.number">10+</div>
+                        <div class="stat-label" data-i18n="trust.stat2.label">years of experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-i18n="cta.title">Ready to Grow Your Business?</h2>
+                <p class="cta-subtitle" data-i18n="cta.subtitle">Contact us now and get a free quote</p>
+
+                <div class="cta-contact">
+                    <div class="contact-methods">
+                        <a href="tel:+4915678473368" class="contact-item">
+                            <div class="contact-icon phone-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Call Us</span>
+                                <span class="contact-value">+49 156 78473368</span>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/4915233559559" target="_blank" rel="noopener noreferrer" class="contact-item">
+                            <div class="contact-icon whatsapp-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">WhatsApp</span>
+                                <span class="contact-value">+49 1523 3559559</span>
+                            </div>
+                        </a>
+                        <a href="mailto:anfrage@dreaverr.com" class="contact-item">
+                            <div class="contact-icon email-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value">Anfrage@dreaverr.com</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="images/r-pay.png" alt="Dreaverr Pay">
+            </div>
+            <ul class="footer-links">
+                <li><a href="#services" data-i18n="nav.services">Services</a></li>
+                <li><a href="#why-us" data-i18n="nav.whyUs">Why Us</a></li>
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#cta" data-i18n="footer.contact">Contact</a></li>
+            </ul>
+            <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Dreaverr Digital Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <script>
+        // Translations
+        const translations = {
+            en: {
+                nav: {
+                    services: "Services",
+                    whyUs: "Why Us",
+                    about: "About",
+                    getStarted: "Get Started"
+                },
+                hero: {
+                    title1: "While You Sleep, You're",
+                    title2: "Losing Customers",
+                    title3: "to Competitors",
+                    subtitle: "Every day, hundreds of potential customers in your area search for your services online. Without your own website, they go to your competition – not to you. How much revenue are you losing right now?",
+                    cta1: "Secure Free Consultation",
+                    cta2: "See What You're Missing",
+                    card1: "⏰ Online in 7 days - While others plan, you're already winning customers",
+                    card2: "💰 From €799 - Less than what one new customer brings you",
+                    card3: "🎯 100% Local - Specialized in your business in your region"
+                },
+                services: {
+                    title: "Everything Local Businesses Need – Nothing You Don't",
+                    subtitle: "No complicated tech packages. No unnecessary features. Just what really brings you more customers.",
+                    service1: {
+                        title: "Lightning-Fast Websites",
+                        desc: "Google punishes slow sites with worse rankings. We build your website to load in seconds – moving you up in search results."
+                    },
+                    service2: {
+                        title: "Mobile-First Design",
+                        desc: "80% of your customers search on smartphones. Our websites look perfect on every device – your competitor with an outdated desktop site? Doesn't stand a chance."
+                    },
+                    service3: {
+                        title: "Local SEO",
+                        desc: "\"Hairdresser in Cologne\", \"Plumber Berlin Center\", \"Café Hamburg Altona\" – we optimize your website for exactly the search terms customers in your region use."
+                    },
+                    service4: {
+                        title: "Conversion Optimization",
+                        desc: "A beautiful website means nothing without inquiries. We build your site so visitors become customers – with clear call-to-actions and thoughtful user guidance."
+                    },
+                    service5: {
+                        title: "Easy Management",
+                        desc: "No programming knowledge required. Update opening hours, prices, or images yourself – in minutes, not hours."
+                    },
+                    service6: {
+                        title: "Maintenance & Support",
+                        desc: "Updates, backups, security – we handle it. You focus on your business, we keep your website running."
+                    }
+                },
+                whyUs: {
+                    title: "We Know Local Businesses – Because We Run Them Ourselves",
+                    subtitle: "No agency jargon. No theoretical marketing terms. We understand your daily life because we're in it ourselves.",
+                    feature1: {
+                        title: "Launch in 7 Days, Not 7 Weeks",
+                        desc: "Most agencies need months. We get you online in one week. Every day without a website costs you money – we know that."
+                    },
+                    feature2: {
+                        title: "Honest Prices – No Nasty Surprises",
+                        desc: "What we offer costs exactly that. No hidden fees after three months. No \"by the way\" invoices. Guaranteed."
+                    },
+                    feature3: {
+                        title: "Specialized in Local Business",
+                        desc: "Restaurant, trades, retail, services – we know the challenges in your industry and what works in your region."
+                    },
+                    feature4: {
+                        title: "Support After Launch Too",
+                        desc: "Other agencies disappear after handover. We don't. Questions? Changes? Problems? One call is enough."
+                    },
+                    feature5: {
+                        title: "Results, Not Empty Promises",
+                        desc: "We measure what counts: More inquiries, more calls, more customers. If it doesn't work, we'll fix it – for free."
+                    }
+                },
+                trust: {
+                    title: "From Entrepreneurs For Entrepreneurs",
+                    desc1: "We're not a typical web agency. We're business owners like you who understand that every euro counts and every investment must pay off. That's why we don't build \"pretty\" websites – we build websites that sell.",
+                    desc2: "Every website we create, we treat like our own. With the same care, the same focus on ROI, the same impatience to see results quickly. Because your success is our success.",
+                    stat1: {
+                        number: "300+",
+                        label: "successful projects"
+                    },
+                    stat2: {
+                        number: "10+",
+                        label: "years of experience"
+                    }
+                },
+                pricing: {
+                    title: "Simple, Honest Pricing",
+                    subtitle: "Choose the package that fits your business needs. No hidden fees, no surprises.",
+                    badge: "Most Popular",
+                    starter: {
+                        name: "Starter",
+                        feature1: "3 pages website",
+                        feature2: "Mobile responsive design",
+                        feature3: "Contact form integration",
+                        feature4: "Basic SEO setup",
+                        feature5: "1 month support"
+                    },
+                    professional: {
+                        name: "Professional",
+                        feature1: "7 pages website",
+                        feature2: "Advanced SEO optimization",
+                        feature3: "Analytics integration",
+                        feature4: "Social media integration",
+                        feature5: "3 months support",
+                        feature6: "Content updates included"
+                    },
+                    business: {
+                        name: "Business",
+                        feature1: "Unlimited pages",
+                        feature2: "E-commerce ready",
+                        feature3: "Premium SEO package",
+                        feature4: "Custom functionality",
+                        feature5: "6 months support",
+                        feature6: "Priority updates"
+                    },
+                    cta: "Get Started"
+                },
+                comparison: {
+                    before: {
+                        label: "Your Current Situation",
+                        title: "Just on Google Maps? You're Losing Money Daily.",
+                        maps: {
+                            business: "Your Business",
+                            type: "Local business",
+                            warning: "⚠ Limited info only"
+                        },
+                        pain1: {
+                            title: "Invisible to 70%",
+                            desc: "7 of 10 people skip to competitors"
+                        },
+                        pain2: {
+                            title: "Zero Trust = Zero Sales",
+                            desc: "No portfolio, no proof, no credibility"
+                        },
+                        pain3: {
+                            title: "Competition Cashes In",
+                            desc: "They show why they're better—you can't"
+                        },
+                        pain4: {
+                            title: "Closed = No Revenue",
+                            desc: "Competition keeps selling 24/7"
+                        }
+                    },
+                    after: {
+                        label: "What Changes Immediately",
+                        title: "Professional Presence = Constant Customer Flow",
+                        benefit1: {
+                            title: "Visible 24/7",
+                            desc: "Your website works non-stop for you"
+                        },
+                        benefit2: {
+                            title: "Trust at the Click",
+                            desc: "Show portfolio & testimonials instantly"
+                        },
+                        benefit3: {
+                            title: "Google Loves You",
+                            desc: "Rank higher in local search results"
+                        },
+                        benefit4: {
+                            title: "Full Control",
+                            desc: "Your brand, your prices, your way"
+                        }
+                    }
+                },
+                cta: {
+                    title: "How Many Customers Will You Still Let Walk to the Competition Today?",
+                    subtitle: "Contact us now and get a free quote"
+                },
+                footer: {
+                    contact: "Contact",
+                    copyright: "© 2025 Dreaverr Digital Solutions. All rights reserved."
+                }
+            },
+            de: {
+                nav: {
+                    services: "Leistungen",
+                    whyUs: "Warum Wir",
+                    about: "Über Uns",
+                    getStarted: "Jetzt Starten"
+                },
+                hero: {
+                    title1: "Während Sie schlafen,",
+                    title2: "verlieren Sie Kunden",
+                    title3: "an die Konkurrenz",
+                    subtitle: "Jeden Tag suchen Hunderte potenzielle Kunden in Ihrer Region nach Ihren Dienstleistungen online. Ohne eigene Website landen sie bei Ihrem Wettbewerb – nicht bei Ihnen. Wie viel Umsatz verlieren Sie gerade in diesem Moment?",
+                    cta1: "Kostenlose Beratung Sichern",
+                    cta2: "Sehen Sie, Was Sie Verpassen",
+                    card1: "⏰ In 7 Tagen online - Während andere noch planen, gewinnen Sie bereits Kunden",
+                    card2: "💰 Ab 799€ - Weniger als ein neuer Kunde Ihnen einbringt",
+                    card3: "🎯 100% Lokal - Spezialisiert auf Ihr Geschäft in Ihrer Region"
+                },
+                services: {
+                    title: "Alles, Was Lokale Unternehmen Brauchen – Nichts, Was Sie Nicht Brauchen",
+                    subtitle: "Keine komplizierten Technik-Pakete. Keine überflüssigen Features. Nur das, was Ihnen wirklich mehr Kunden bringt.",
+                    service1: {
+                        title: "Blitzschnelle Websites",
+                        desc: "Google bestraft langsame Seiten mit schlechteren Rankings. Wir bauen Ihre Website so, dass sie in Sekunden lädt – und Sie in den Suchergebnissen nach oben steigen."
+                    },
+                    service2: {
+                        title: "Mobile-First Design",
+                        desc: "80% Ihrer Kunden suchen auf dem Smartphone. Unsere Websites sehen auf jedem Gerät perfekt aus – Ihr Konkurrent mit veralteter Desktop-Seite? Hat keine Chance."
+                    },
+                    service3: {
+                        title: "Lokales SEO",
+                        desc: "\"Friseur in Köln\", \"Klempner Berlin Mitte\", \"Café Hamburg Altona\" – wir optimieren Ihre Website genau für die Suchbegriffe, die Kunden in Ihrer Region eingeben."
+                    },
+                    service4: {
+                        title: "Conversion-Optimierung",
+                        desc: "Eine schöne Website bringt nichts ohne Anfragen. Wir bauen Ihre Seite so, dass Besucher zu Kunden werden – mit klaren Call-to-Actions und durchdachter Nutzerführung."
+                    },
+                    service5: {
+                        title: "Einfache Verwaltung",
+                        desc: "Keine Programmierkenntnisse nötig. Aktualisieren Sie Öffnungszeiten, Preise oder Bilder selbst – in Minuten, nicht Stunden."
+                    },
+                    service6: {
+                        title: "Wartung & Support",
+                        desc: "Updates, Backups, Sicherheit – wir kümmern uns darum. Sie konzentrieren sich auf Ihr Geschäft, wir halten Ihre Website am Laufen."
+                    }
+                },
+                whyUs: {
+                    title: "Wir Kennen Lokale Unternehmen – Weil Wir Selbst Welche Führen",
+                    subtitle: "Keine Agentur-Floskeln. Keine theoretischen Marketing-Begriffe. Wir verstehen Ihren Alltag, weil wir selbst darin stecken.",
+                    feature1: {
+                        title: "Start in 7 Tagen, nicht 7 Wochen",
+                        desc: "Die meisten Agenturen brauchen Monate. Wir bringen Sie in einer Woche online. Jeder Tag ohne Website kostet Sie Geld – das wissen wir."
+                    },
+                    feature2: {
+                        title: "Ehrliche Preise – Keine bösen Überraschungen",
+                        desc: "Was wir anbieten, kostet auch genau das. Keine versteckten Gebühren nach drei Monaten. Keine \"ach übrigens\"-Rechnungen. Versprochen."
+                    },
+                    feature3: {
+                        title: "Spezialisiert auf Lokales Business",
+                        desc: "Restaurant, Handwerk, Einzelhandel, Dienstleistung – wir kennen die Herausforderungen in Ihrer Branche und wissen, was in Ihrer Region funktioniert."
+                    },
+                    feature4: {
+                        title: "Support auch nach dem Launch",
+                        desc: "Andere Agenturen verschwinden nach der Übergabe. Wir nicht. Fragen? Änderungen? Probleme? Ein Anruf reicht."
+                    },
+                    feature5: {
+                        title: "Ergebnisse, keine leeren Versprechen",
+                        desc: "Wir messen, was zählt: Mehr Anfragen, mehr Anrufe, mehr Kunden. Wenn's nicht funktioniert, arbeiten wir nach – kostenlos."
+                    }
+                },
+                trust: {
+                    title: "Von Unternehmern Für Unternehmer",
+                    desc1: "Wir sind keine typische Web-Agentur. Wir sind Geschäftsinhaber wie Sie, die verstehen, dass jeder Euro zählt und jede Investition sich rechnen muss. Deshalb bauen wir keine \"schönen\" Websites – wir bauen Websites, die verkaufen.",
+                    desc2: "Jede Website, die wir erstellen, behandeln wir wie unsere eigene. Mit derselben Sorgfalt, demselben Fokus auf ROI, derselben Ungeduld, schnell Ergebnisse zu sehen. Denn Ihr Erfolg ist unser Erfolg.",
+                    stat1: {
+                        number: "300+",
+                        label: "erfolgreiche Projekte"
+                    },
+                    stat2: {
+                        number: "10+",
+                        label: "Jahre Erfahrung"
+                    }
+                },
+                pricing: {
+                    title: "Einfache, Ehrliche Preise",
+                    subtitle: "Wählen Sie das Paket, das zu Ihren Geschäftsanforderungen passt. Keine versteckten Gebühren, keine Überraschungen.",
+                    badge: "Am Beliebtesten",
+                    starter: {
+                        name: "Starter",
+                        feature1: "3-Seiten-Website",
+                        feature2: "Mobil-responsives Design",
+                        feature3: "Kontaktformular-Integration",
+                        feature4: "Basis-SEO-Setup",
+                        feature5: "1 Monat Support"
+                    },
+                    professional: {
+                        name: "Professional",
+                        feature1: "7-Seiten-Website",
+                        feature2: "Erweiterte SEO-Optimierung",
+                        feature3: "Analytics-Integration",
+                        feature4: "Social-Media-Integration",
+                        feature5: "3 Monate Support",
+                        feature6: "Content-Updates inklusive"
+                    },
+                    business: {
+                        name: "Business",
+                        feature1: "Unbegrenzte Seiten",
+                        feature2: "E-Commerce-ready",
+                        feature3: "Premium-SEO-Paket",
+                        feature4: "Individuelle Funktionalität",
+                        feature5: "6 Monate Support",
+                        feature6: "Prioritäts-Updates"
+                    },
+                    cta: "Loslegen"
+                },
+                comparison: {
+                    before: {
+                        label: "Ihre aktuelle Situation",
+                        title: "Nur auf Google Maps? Sie verlieren täglich Geld.",
+                        maps: {
+                            business: "Ihr Unternehmen",
+                            type: "Lokales Unternehmen",
+                            warning: "⚠ Nur begrenzte Infos"
+                        },
+                        pain1: {
+                            title: "Unsichtbar für 70%",
+                            desc: "7 von 10 klicken zur Konkurrenz"
+                        },
+                        pain2: {
+                            title: "Null Vertrauen = Null Verkäufe",
+                            desc: "Kein Portfolio, kein Beweis, keine Glaubwürdigkeit"
+                        },
+                        pain3: {
+                            title: "Konkurrenz kassiert ab",
+                            desc: "Sie zeigen, warum sie besser sind—Sie nicht"
+                        },
+                        pain4: {
+                            title: "Geschlossen = Keine Einnahmen",
+                            desc: "Konkurrenz verkauft 24/7 weiter"
+                        }
+                    },
+                    after: {
+                        label: "Was sich sofort ändert",
+                        title: "Professionelle Präsenz = Konstanter Kundenstrom",
+                        benefit1: {
+                            title: "Rund um die Uhr sichtbar",
+                            desc: "Ihre Website arbeitet 24/7 für Sie"
+                        },
+                        benefit2: {
+                            title: "Vertrauen auf Knopfdruck",
+                            desc: "Portfolio & Kundenstimmen sofort zeigen"
+                        },
+                        benefit3: {
+                            title: "Google liebt Sie",
+                            desc: "Höheres Ranking in lokalen Suchergebnissen"
+                        },
+                        benefit4: {
+                            title: "Volle Kontrolle",
+                            desc: "Ihre Marke, Ihre Preise, Ihr Weg"
+                        }
+                    }
+                },
+                cta: {
+                    title: "Wie Viele Kunden Lassen Sie Heute Noch Zur Konkurrenz Laufen?",
+                    subtitle: "Kontaktieren Sie uns jetzt und erhalten Sie ein kostenloses Angebot"
+                },
+                footer: {
+                    contact: "Kontakt",
+                    copyright: "© 2025 Dreaverr Digital Solutions. Alle Rechte vorbehalten."
+                }
+            }
+        };
+
+        // IP-based language detection
+        async function detectLanguageByIP() {
+            // Check if user has already selected a language
+            const savedLang = localStorage.getItem('dreaverr-lang');
+            if (savedLang) {
+                return savedLang;
+            }
+
+            try {
+                // Use ipapi.co for geolocation (free tier: 1000 requests/day)
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+
+                // German-speaking countries
+                const germanCountries = ['DE', 'AT', 'CH'];
+
+                if (germanCountries.includes(data.country_code)) {
+                    return 'de';
+                }
+
+                return 'en';
+            } catch (error) {
+                console.log('Could not detect location, defaulting to English:', error);
+                return 'en';
+            }
+        }
+
+        // Language switching logic
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('dreaverr-lang', lang);
+            document.documentElement.lang = lang;
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const keys = element.getAttribute('data-i18n').split('.');
+                let translation = translations[lang];
+
+                for (const key of keys) {
+                    translation = translation[key];
+                }
+
+                element.textContent = translation;
+            });
+
+            // Update placeholder attributes
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const keys = element.getAttribute('data-i18n-placeholder').split('.');
+                let translation = translations[lang];
+
+                for (const key of keys) {
+                    translation = translation[key];
+                }
+
+                element.placeholder = translation;
+            });
+
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Initialize language on page load with IP detection
+        document.addEventListener('DOMContentLoaded', async () => {
+            const detectedLang = await detectLanguageByIP();
+            currentLang = detectedLang;
+            setLanguage(currentLang);
+        });
+
+        // Language switcher event listeners
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const lang = button.getAttribute('data-lang');
+                setLanguage(lang);
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const navLinkItems = document.querySelectorAll('.nav-links a');
+            const menuBackdrop = document.querySelector('.menu-backdrop');
+
+            console.log('Mobile menu elements:', {
+                toggle: mobileMenuToggle,
+                links: navLinks,
+                backdrop: menuBackdrop
+            });
+
+            if (!mobileMenuToggle || !navLinks || !menuBackdrop) {
+                console.error('Mobile menu elements not found');
+                return;
+            }
+
+            function toggleMenu(show) {
+                console.log('Toggle menu:', show);
+                if (show) {
+                    mobileMenuToggle.classList.add('active');
+                    navLinks.classList.add('active');
+                    menuBackdrop.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    console.log('Menu opened - classes:', navLinks.className);
+                    console.log('Menu styles:', window.getComputedStyle(navLinks).right);
+                } else {
+                    mobileMenuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    menuBackdrop.classList.remove('active');
+                    document.body.style.overflow = '';
+                    console.log('Menu closed');
+                }
+            }
+
+            mobileMenuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isActive = navLinks.classList.contains('active');
+                console.log('Hamburger clicked, currently active:', isActive);
+                toggleMenu(!isActive);
+            });
+
+            // Close menu when clicking on a link
+            navLinkItems.forEach(link => {
+                link.addEventListener('click', () => {
+                    toggleMenu(false);
+                });
+            });
+
+            // Close menu when clicking backdrop
+            menuBackdrop.addEventListener('click', () => {
+                toggleMenu(false);
+            });
+        });
+
+        // Intersection Observer for hero elements
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    if (entry.target.matches('.hero-text h1')) {
+                        anime({
+                            targets: entry.target,
+                            translateY: [50, 0],
+                            opacity: [0, 1],
+                            duration: 1200,
+                            easing: 'easeOutExpo'
+                        });
+                    } else if (entry.target.matches('.hero-text p')) {
+                        anime({
+                            targets: entry.target,
+                            translateY: [50, 0],
+                            opacity: [0, 1],
+                            duration: 1000,
+                            easing: 'easeOutExpo'
+                        });
+                    } else if (entry.target.matches('.hero-buttons')) {
+                        anime({
+                            targets: entry.target,
+                            translateY: [50, 0],
+                            opacity: [0, 1],
+                            duration: 800,
+                            easing: 'easeOutExpo'
+                        });
+                    }
+                } else {
+                    // Fade out when leaving viewport
+                    anime({
+                        targets: entry.target,
+                        translateY: 30,
+                        opacity: 0.3,
+                        duration: 400,
+                        easing: 'easeInExpo'
+                    });
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '-50px' });
+
+        // Intersection Observer for comparison section
+        const comparisonObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    if (entry.target.matches('.comparison-side.before')) {
+                        anime({
+                            targets: entry.target,
+                            translateX: [-100, 0],
+                            opacity: [0, 1],
+                            duration: 1000,
+                            easing: 'easeOutExpo'
+                        });
+                    } else if (entry.target.matches('.comparison-side.after')) {
+                        anime({
+                            targets: entry.target,
+                            translateX: [100, 0],
+                            opacity: [0, 1],
+                            duration: 1000,
+                            easing: 'easeOutExpo'
+                        });
+                    } else if (entry.target.matches('.vs-badge')) {
+                        anime({
+                            targets: entry.target,
+                            scale: [0, 1],
+                            opacity: [0, 1],
+                            rotate: [180, 0],
+                            duration: 800,
+                            easing: 'easeOutElastic(1, .6)'
+                        });
+                    }
+                } else {
+                    // Fade out when leaving viewport
+                    if (entry.target.matches('.comparison-side.before')) {
+                        anime({
+                            targets: entry.target,
+                            translateX: -30,
+                            opacity: 0.2,
+                            duration: 400,
+                            easing: 'easeInExpo'
+                        });
+                    } else if (entry.target.matches('.comparison-side.after')) {
+                        anime({
+                            targets: entry.target,
+                            translateX: 30,
+                            opacity: 0.2,
+                            duration: 400,
+                            easing: 'easeInExpo'
+                        });
+                    } else if (entry.target.matches('.vs-badge')) {
+                        anime({
+                            targets: entry.target,
+                            scale: 0.7,
+                            opacity: 0.3,
+                            rotate: -45,
+                            duration: 400,
+                            easing: 'easeInExpo'
+                        });
+                    }
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '-50px' });
+
+        // Comparison items observer
+        const comparisonItemsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    anime({
+                        targets: entry.target,
+                        translateY: [30, 0],
+                        opacity: [0, 1],
+                        duration: 600,
+                        easing: 'easeOutExpo'
+                    });
+                } else {
+                    anime({
+                        targets: entry.target,
+                        translateY: 15,
+                        opacity: 0.4,
+                        duration: 300,
+                        easing: 'easeInExpo'
+                    });
+                }
+            });
+        }, { threshold: 0.2, rootMargin: '-30px' });
+
+        // Intersection Observer for scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '-50px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Reset and animate in when entering viewport
+                    entry.target.style.opacity = '0';
+                    anime({
+                        targets: entry.target,
+                        translateY: [50, 0],
+                        opacity: [0, 1],
+                        duration: 800,
+                        easing: 'easeOutExpo'
+                    });
+                } else {
+                    // Fade and shift when leaving viewport
+                    anime({
+                        targets: entry.target,
+                        translateY: 30,
+                        opacity: 0.3,
+                        duration: 400,
+                        easing: 'easeInExpo'
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observe hero elements
+            document.querySelectorAll('.hero-text h1, .hero-text p, .hero-buttons').forEach(el => {
+                heroObserver.observe(el);
+            });
+
+            // Observe comparison elements
+            document.querySelectorAll('.comparison-side.before, .comparison-side.after, .vs-badge').forEach(el => {
+                comparisonObserver.observe(el);
+            });
+
+            // Observe comparison items
+            document.querySelectorAll('.comparison-item').forEach(el => {
+                comparisonItemsObserver.observe(el);
+            });
+
+            // Observe other elements
+            document.querySelectorAll('.service-card, .feature-item, .trust-image, .trust-content, .stat-item, .pricing-card, .contact-item').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Button hover animations
+        document.querySelectorAll('.btn-primary, .btn-secondary, .btn-nav').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                anime({
+                    targets: this,
+                    scale: 1.05,
+                    duration: 300,
+                    easing: 'easeOutExpo'
+                });
+            });
+
+            button.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this,
+                    scale: 1,
+                    duration: 300,
+                    easing: 'easeOutExpo'
+                });
+            });
+        });
+
+        // Form submission
+        document.querySelector('.cta-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const button = e.target.querySelector('button');
+            const originalText = button.textContent;
+
+            anime({
+                targets: button,
+                scale: [1, 0.95, 1],
+                duration: 600,
+                easing: 'easeInOutQuad'
+            });
+
+            button.textContent = currentLang === 'en' ? 'Sending...' : 'Wird gesendet...';
+            button.disabled = true;
+
+            setTimeout(() => {
+                button.textContent = currentLang === 'en' ? 'Sent! ✓' : 'Gesendet! ✓';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    e.target.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
