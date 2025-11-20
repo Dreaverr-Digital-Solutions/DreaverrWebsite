@@ -1189,6 +1189,464 @@
             color: var(--primary-coral);
         }
 
+        /* Company Information Section */
+        .company-info-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(230, 85, 64, 0.1);
+        }
+
+        .company-info-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(230, 85, 64, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .company-info-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 1;
+            align-items: start;
+        }
+
+        /* Credential Card */
+        .credential-card {
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(230, 85, 64, 0.15);
+            border: 2px solid rgba(230, 85, 64, 0.2);
+            position: relative;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .credential-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(230, 85, 64, 0.25);
+        }
+
+        .credential-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--coral-gradient);
+            color: var(--white);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--white);
+            color: var(--primary-coral);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.75rem;
+        }
+
+        .credential-title {
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .credential-number {
+            background: linear-gradient(135deg, rgba(230, 85, 64, 0.05) 0%, rgba(255, 122, 92, 0.05) 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border: 1px dashed var(--primary-coral);
+        }
+
+        .credential-number .label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .credential-number .number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 900;
+            background: var(--coral-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        /* Seal */
+        .credential-seal {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .seal-ring {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--coral-gradient);
+            padding: 4px;
+            animation: rotate-seal 20s linear infinite;
+        }
+
+        @keyframes rotate-seal {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .seal-inner {
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--primary-coral);
+        }
+
+        .seal-text {
+            font-size: 0.85rem;
+            font-weight: 900;
+            color: var(--primary-coral);
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .verify-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--coral-gradient);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .verify-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(230, 85, 64, 0.4);
+        }
+
+        /* Company Details */
+        .company-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .detail-item {
+            display: flex;
+            gap: 1.5rem;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid var(--primary-coral);
+            transition: var(--transition);
+        }
+
+        .detail-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(230, 85, 64, 0.15);
+        }
+
+        .detail-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, rgba(230, 85, 64, 0.1) 0%, rgba(255, 122, 92, 0.1) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .detail-content h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-content p {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-sub {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 8rem 0;
+            background: var(--bg-light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--coral-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(230, 85, 64, 0.15);
+        }
+
+        .team-member:hover::before {
+            transform: scaleX(1);
+        }
+
+        .member-photo {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--bg-light);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .team-member:hover .member-photo {
+            transform: scale(1.05);
+            border-color: #e65540;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            background: var(--coral-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .recruiting .avatar-placeholder {
+            background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 100%);
+        }
+
+        .recruiting .avatar-placeholder svg {
+            width: 50px;
+            height: 50px;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #e65540;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .member-bio {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover .skill-badge {
+            background: linear-gradient(135deg, rgba(230, 85, 64, 0.1) 0%, rgba(255, 122, 92, 0.1) 100%);
+            color: #e65540;
+        }
+
+        .member-contact {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .contact-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .contact-link:hover {
+            background: var(--coral-gradient);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .contact-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .join-team-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--coral-gradient);
+            color: var(--white);
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(230, 85, 64, 0.3);
+        }
+
+        .join-team-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(230, 85, 64, 0.4);
+        }
+
+        .team-member.recruiting {
+            border: 2px dashed #cbd5e1;
+            background: linear-gradient(135deg, rgba(148, 163, 184, 0.03) 0%, rgba(203, 213, 225, 0.03) 100%);
+        }
+
+        .team-member.recruiting:hover {
+            border-color: #e65540;
+            background: linear-gradient(135deg, rgba(230, 85, 64, 0.05) 0%, rgba(255, 122, 92, 0.05) 100%);
+        }
+
+        /* Team Section - Responsive */
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-section {
+                padding: 5rem 0;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .team-member {
+                padding: 2rem;
+            }
+
+            .member-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .member-name {
+                font-size: 1.2rem;
+            }
+
+            .member-bio {
+                font-size: 0.9rem;
+            }
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 8rem 0;
@@ -1418,11 +1876,11 @@
         }
 
         /* Footer */
+        /* Footer */
         footer {
             background: var(--dark-bg-alt);
             color: var(--text-tertiary);
-            padding: 3rem 0;
-            text-align: center;
+            padding: 4rem 0 2rem;
             border-top: 2px solid var(--primary-coral);
             position: relative;
         }
@@ -1439,12 +1897,28 @@
             box-shadow: 0 0 20px var(--primary-coral);
         }
 
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .footer-logo {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .footer-logo img {
-            height: 60px;
+            height: 50px;
             width: auto;
             opacity: 0.9;
             transition: var(--transition);
@@ -1455,12 +1929,20 @@
             transform: scale(1.05);
         }
 
+        .footer-tagline {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
         .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
             list-style: none;
-            margin-bottom: 1.5rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
         }
 
         .footer-links a {
@@ -1472,10 +1954,54 @@
 
         .footer-links a:hover {
             color: var(--primary-coral);
+            padding-left: 5px;
+        }
+
+        .footer-company-info {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-company-info strong {
+            color: var(--white);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
         }
 
         .copyright {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-logo {
+                display: flex;
+                justify-content: center;
+            }
+
+            .footer-links {
+                text-align: center;
+            }
         }
 
         /* Mobile Responsive */
@@ -1520,6 +2046,27 @@
         @media (max-width: 768px) {
             .features-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .company-info-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .company-info-section {
+                padding: 4rem 0;
+            }
+
+            .credential-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .credential-title {
+                font-size: 1.4rem;
+            }
+
+            .detail-item {
+                padding: 1.5rem;
             }
         }
 
@@ -1752,6 +2299,7 @@
                 <li><a href="#services" data-i18n="nav.services">Leistungen</a></li>
                 <li><a href="#why-us" data-i18n="nav.whyUs">Warum Wir</a></li>
                 <li><a href="#about" data-i18n="nav.about">Über Uns</a></li>
+                <li><a href="#company-info" data-i18n="nav.company">Firma</a></li>
                 <li><a href="#cta" class="btn-nav" data-i18n="nav.getStarted">Jetzt Starten</a></li>
             </ul>
 
@@ -2008,6 +2556,131 @@
         </div>
     </section>
 
+    <!-- Company Information Section -->
+    <section class="company-info-section" id="company-info">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="companyInfo.title">Unsere Firma</h2>
+                <p data-i18n="companyInfo.subtitle">Transparenz und Vertrauen seit 2019</p>
+            </div>
+            <div class="company-info-container">
+                <!-- Featured Credential Card -->
+                <div class="credential-card">
+                    <div class="credential-badge">
+                        <div class="badge-icon">✓</div>
+                        <span data-i18n="companyInfo.badge">Offiziell Registriert</span>
+                    </div>
+                    <h3 class="credential-title">DREAVERR DIGITAL<br>SOLUTIONS LLP</h3>
+                    <div class="credential-number">
+                        <span class="label" data-i18n="companyInfo.regNumber">Registrierungsnummer</span>
+                        <span class="number">LL01522</span>
+                    </div>
+                    <div class="credential-seal">
+                        <div class="seal-ring">
+                            <div class="seal-inner">
+                                <div class="seal-text">EST.<br>2019</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://www.bclaws.gov.bc.ca/civix/document/id/corpreg/corpreg/soc0523soc0619/search/CIVIX_DOCUMENT_ROOT_STEM:(dreaverr)%20AND%20CIVIX_DOCUMENT_ANCESTORS:corpreg?1#hit1" target="_blank" rel="noopener noreferrer" class="verify-btn" data-i18n="companyInfo.verifyBtn">
+                        Registrierung Verifizieren
+                    </a>
+                </div>
+
+                <!-- Company Details List -->
+                <div class="company-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">⚖️</div>
+                        <div class="detail-content">
+                            <h4 data-i18n="companyInfo.legalForm.title">Rechtsform</h4>
+                            <p>Limited Liability Partnership (LLP)</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🌐</div>
+                        <div class="detail-content">
+                            <h4 data-i18n="companyInfo.jurisdiction.title">Jurisdiktion</h4>
+                            <p data-i18n="companyInfo.jurisdiction.value">Kanada</p>
+                            <span class="detail-sub" data-i18n="companyInfo.jurisdiction.detail">Partnership Act (British Columbia)</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📍</div>
+                        <div class="detail-content">
+                            <h4 data-i18n="companyInfo.location.title">Registrierter Sitz</h4>
+                            <p>British Columbia, Canada</p>
+                            <span class="detail-sub">1103 - 11871 Horseshoe Way<br>Richmond, BC V7A 5H5</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🏛️</div>
+                        <div class="detail-content">
+                            <h4 data-i18n="companyInfo.registrar.title">Registrierstelle</h4>
+                            <p>BC Registrar of Companies</p>
+                            <span class="detail-sub" data-i18n="companyInfo.registrar.detail">Britisch-Kolumbien, Kanada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="team.title">Unser Team</h2>
+                <p data-i18n="team.subtitle">Die Köpfe hinter Dreaverr</p>
+            </div>
+            <div class="team-grid">
+                <!-- Robinson's Profile -->
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="images/robinson.jpg" alt="Robinson Tilmann Guerra Fietz">
+                    </div>
+                    <h3 class="member-name">Robinson Tilmann Guerra Fietz</h3>
+                    <p class="member-role" data-i18n="team.robinson.role">Co-Founder & Technical Lead</p>
+                    <p class="member-bio" data-i18n="team.robinson.bio">Computer Science graduate mit Expertise in Full-Stack-Entwicklung und IT-Infrastruktur. Ehemaliger Head of IT, entwickelt seit 2019 innovative Web-Lösungen für lokale Unternehmen.</p>
+                    <div class="member-skills">
+                        <span class="skill-badge">B.Sc. Informatik</span>
+                        <span class="skill-badge">Laravel • PHP • Python</span>
+                        <span class="skill-badge">DE • ES • EN</span>
+                    </div>
+                </div>
+
+                <!-- Serkan Glatt - Placeholder -->
+                <div class="team-member placeholder">
+                    <div class="member-photo">
+                        <div class="avatar-placeholder">SG</div>
+                    </div>
+                    <h3 class="member-name">Serkan Glatt</h3>
+                    <p class="member-role" data-i18n="team.serkan.role">Co-Founder & Business Development</p>
+                    <p class="member-bio" data-i18n="team.serkan.bio">Experte für Geschäftsentwicklung und Kundenbeziehungen. Unterstützt lokale Unternehmen dabei, ihre digitale Präsenz zu maximieren.</p>
+                    <div class="member-skills">
+                        <span class="skill-badge" data-i18n="team.serkan.skill1">Geschäftsentwicklung</span>
+                        <span class="skill-badge" data-i18n="team.serkan.skill2">Kundenerfolg</span>
+                        <span class="skill-badge" data-i18n="team.serkan.skill3">Strategie</span>
+                    </div>
+                </div>
+
+                <!-- Third Member - Placeholder -->
+                <div class="team-member placeholder recruiting">
+                    <div class="member-photo">
+                        <div class="avatar-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="member-name" data-i18n="team.recruiting.name">Werden Sie Teil des Teams</h3>
+                    <p class="member-role" data-i18n="team.recruiting.role">Wir wachsen</p>
+                    <p class="member-bio" data-i18n="team.recruiting.bio">Sind Sie leidenschaftlich daran interessiert, lokalen Unternehmen zu helfen? Wir suchen talentierte Menschen, die unser Team verstärken möchten.</p>
+                    <a href="#cta" class="join-team-btn" data-i18n="team.recruiting.cta">Kontakt aufnehmen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section" id="cta">
         <div class="container">
@@ -2059,16 +2732,41 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-logo">
-                <img src="images/r-pay.png" alt="Dreaverr Pay">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/r-pay.png" alt="Dreaverr Pay">
+                    </div>
+                    <p class="footer-tagline" data-i18n="footer.tagline">Professionelle Websites für lokale Unternehmen</p>
+                </div>
+                <div class="footer-column">
+                    <h4 data-i18n="footer.quickLinks">Schnelllinks</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services" data-i18n="nav.services">Leistungen</a></li>
+                        <li><a href="#why-us" data-i18n="nav.whyUs">Warum Wir</a></li>
+                        <li><a href="#about" data-i18n="nav.about">Über Uns</a></li>
+                        <li><a href="#company-info" data-i18n="nav.company">Firma</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 data-i18n="footer.legalTitle">Rechtliches</h4>
+                    <ul class="footer-links">
+                        <li><a href="impressum.html" data-i18n="footer.impressum">Impressum</a></li>
+                        <li><a href="#cta" data-i18n="footer.contact">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 data-i18n="footer.companyTitle">Unternehmen</h4>
+                    <p class="footer-company-info">
+                        <strong>DREAVERR DIGITAL SOLUTIONS LLP</strong><br>
+                        <span data-i18n="footer.regNumber">Registrierungsnummer:</span> LL01522<br>
+                        British Columbia, Canada
+                    </p>
+                </div>
             </div>
-            <ul class="footer-links">
-                <li><a href="#services" data-i18n="nav.services">Leistungen</a></li>
-                <li><a href="#why-us" data-i18n="nav.whyUs">Warum Wir</a></li>
-                <li><a href="#about" data-i18n="nav.about">Über Uns</a></li>
-                <li><a href="#cta" data-i18n="footer.contact">Kontakt</a></li>
-            </ul>
-            <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Dreaverr Digital Solutions. Alle Rechte vorbehalten.</p>
+            <div class="footer-bottom">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Dreaverr Digital Solutions. Alle Rechte vorbehalten.</p>
+            </div>
         </div>
     </footer>
 
@@ -2083,6 +2781,7 @@
                     services: "Services",
                     whyUs: "Why Us",
                     about: "About",
+                    company: "Company",
                     getStarted: "Get Started"
                 },
                 hero: {
@@ -2159,6 +2858,49 @@
                     stat2: {
                         number: "10+",
                         label: "years of experience"
+                    }
+                },
+                companyInfo: {
+                    title: "Our Company",
+                    subtitle: "Transparency and Trust since 2019",
+                    badge: "Officially Registered",
+                    regNumber: "Registration Number",
+                    verifyBtn: "Verify Registration",
+                    legalForm: {
+                        title: "Legal Form"
+                    },
+                    jurisdiction: {
+                        title: "Jurisdiction",
+                        value: "Canada",
+                        detail: "Partnership Act (British Columbia)"
+                    },
+                    location: {
+                        title: "Registered Office"
+                    },
+                    registrar: {
+                        title: "Registrar",
+                        detail: "British Columbia, Canada"
+                    }
+                },
+                team: {
+                    title: "Our Team",
+                    subtitle: "The Minds Behind Dreaverr",
+                    robinson: {
+                        role: "Co-Founder & Technical Lead",
+                        bio: "Computer Science graduate with expertise in full-stack development and IT infrastructure. Former Head of IT, developing innovative web solutions for local businesses since 2019."
+                    },
+                    serkan: {
+                        role: "Co-Founder & Business Development",
+                        bio: "Expert in business development and customer relations. Helps local businesses maximize their digital presence.",
+                        skill1: "Business Development",
+                        skill2: "Customer Success",
+                        skill3: "Strategy"
+                    },
+                    recruiting: {
+                        name: "Join Our Team",
+                        role: "We're Growing",
+                        bio: "Are you passionate about helping local businesses? We're looking for talented people who want to strengthen our team.",
+                        cta: "Get in Touch"
                     }
                 },
                 pricing: {
@@ -2245,7 +2987,13 @@
                     subtitle: "Contact us now and get a free quote"
                 },
                 footer: {
+                    tagline: "Professional websites for local businesses",
+                    quickLinks: "Quick Links",
+                    legalTitle: "Legal",
+                    impressum: "Legal Notice",
                     contact: "Contact",
+                    companyTitle: "Company",
+                    regNumber: "Registration Number",
                     copyright: "© 2025 Dreaverr Digital Solutions. All rights reserved."
                 }
             },
@@ -2254,6 +3002,7 @@
                     services: "Leistungen",
                     whyUs: "Warum Wir",
                     about: "Über Uns",
+                    company: "Firma",
                     getStarted: "Jetzt Starten"
                 },
                 hero: {
@@ -2330,6 +3079,49 @@
                     stat2: {
                         number: "10+",
                         label: "Jahre Erfahrung"
+                    }
+                },
+                companyInfo: {
+                    title: "Unsere Firma",
+                    subtitle: "Transparenz und Vertrauen seit 2019",
+                    badge: "Offiziell Registriert",
+                    regNumber: "Registrierungsnummer",
+                    verifyBtn: "Registrierung Verifizieren",
+                    legalForm: {
+                        title: "Rechtsform"
+                    },
+                    jurisdiction: {
+                        title: "Jurisdiktion",
+                        value: "Kanada",
+                        detail: "Partnership Act (British Columbia)"
+                    },
+                    location: {
+                        title: "Registrierter Sitz"
+                    },
+                    registrar: {
+                        title: "Registrierstelle",
+                        detail: "Britisch-Kolumbien, Kanada"
+                    }
+                },
+                team: {
+                    title: "Unser Team",
+                    subtitle: "Die Köpfe hinter Dreaverr",
+                    robinson: {
+                        role: "Co-Founder & Technical Lead",
+                        bio: "Computer Science graduate mit Expertise in Full-Stack-Entwicklung und IT-Infrastruktur. Ehemaliger Head of IT, entwickelt seit 2019 innovative Web-Lösungen für lokale Unternehmen."
+                    },
+                    serkan: {
+                        role: "Co-Founder & Business Development",
+                        bio: "Experte für Geschäftsentwicklung und Kundenbeziehungen. Unterstützt lokale Unternehmen dabei, ihre digitale Präsenz zu maximieren.",
+                        skill1: "Geschäftsentwicklung",
+                        skill2: "Kundenerfolg",
+                        skill3: "Strategie"
+                    },
+                    recruiting: {
+                        name: "Werden Sie Teil des Teams",
+                        role: "Wir wachsen",
+                        bio: "Sind Sie leidenschaftlich daran interessiert, lokalen Unternehmen zu helfen? Wir suchen talentierte Menschen, die unser Team verstärken möchten.",
+                        cta: "Kontakt aufnehmen"
                     }
                 },
                 pricing: {
@@ -2416,7 +3208,13 @@
                     subtitle: "Kontaktieren Sie uns jetzt und erhalten Sie ein kostenloses Angebot"
                 },
                 footer: {
+                    tagline: "Professionelle Websites für lokale Unternehmen",
+                    quickLinks: "Schnelllinks",
+                    legalTitle: "Rechtliches",
+                    impressum: "Impressum",
                     contact: "Kontakt",
+                    companyTitle: "Unternehmen",
+                    regNumber: "Registrierungsnummer",
                     copyright: "© 2025 Dreaverr Digital Solutions. Alle Rechte vorbehalten."
                 }
             }
@@ -2750,7 +3548,7 @@
             });
 
             // Observe other elements
-            document.querySelectorAll('.service-card, .feature-item, .trust-image, .trust-content, .stat-item, .pricing-card, .contact-item').forEach(el => {
+            document.querySelectorAll('.service-card, .feature-item, .trust-image, .trust-content, .stat-item, .pricing-card, .contact-item, .credential-card, .detail-item, .team-member').forEach(el => {
                 observer.observe(el);
             });
         });
