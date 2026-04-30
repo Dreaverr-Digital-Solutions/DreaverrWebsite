@@ -1651,6 +1651,33 @@
         }
 
         /* CTA Section */
+        /* Reviews Section */
+        .reviews-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f3 100%);
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(230, 85, 64, 0.1);
+        }
+
+        .reviews-section::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(230, 85, 64, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .reviews-widget-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
         .cta-section {
             padding: 8rem 0;
             background: linear-gradient(135deg, #e65540 0%, #ff7a5c 100%);
@@ -2304,6 +2331,7 @@
                 <li><a href="#why-us" data-i18n="nav.whyUs">Warum Wir</a></li>
                 <li><a href="#about" data-i18n="nav.about">Über Uns</a></li>
                 <li><a href="#company-info" data-i18n="nav.company">Firma</a></li>
+                <li><a href="#reviews" data-i18n="nav.reviews">Bewertungen</a></li>
                 <li><a href="#cta" class="btn-nav" data-i18n="nav.getStarted">Jetzt Starten</a></li>
             </ul>
 
@@ -2605,6 +2633,19 @@
         </div>
     </section>
 
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="reviews.title">Was Unsere Kunden Sagen</h2>
+                <p data-i18n="reviews.subtitle">Echte Bewertungen von echten Unternehmen, die mit uns zusammengearbeitet haben.</p>
+            </div>
+            <div class="reviews-widget-wrapper">
+                <div id="signedreviews-widget" data-api-key="vr_8LYauIJNlWoIEZz02925y35b9YtBt1g4"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section" id="cta">
         <div class="container">
@@ -2684,6 +2725,7 @@
                     whyUs: "Why Us",
                     about: "About",
                     company: "Company",
+                    reviews: "Reviews",
                     getStarted: "Get Started"
                 },
                 hero: {
@@ -2871,6 +2913,10 @@
                         }
                     }
                 },
+                reviews: {
+                    title: "What Our Customers Say",
+                    subtitle: "Real reviews from real businesses we've worked with."
+                },
                 cta: {
                     title: "How Many Customers Will You Still Let Walk to the Competition Today?",
                     subtitle: "Contact us now and get a free quote"
@@ -2892,6 +2938,7 @@
                     whyUs: "Warum Wir",
                     about: "Über Uns",
                     company: "Firma",
+                    reviews: "Bewertungen",
                     getStarted: "Jetzt Starten"
                 },
                 hero: {
@@ -3078,6 +3125,10 @@
                             desc: "Ihre Marke, Ihre Preise, Ihr Weg"
                         }
                     }
+                },
+                reviews: {
+                    title: "Was Unsere Kunden Sagen",
+                    subtitle: "Echte Bewertungen von echten Unternehmen, die mit uns zusammengearbeitet haben."
                 },
                 cta: {
                     title: "Wie Viele Kunden Lassen Sie Heute Noch Zur Konkurrenz Laufen?",
@@ -3490,5 +3541,8 @@
             });
         });
     </script>
+
+    <!-- SignedReviews Widget -->
+    <script src="https://backend.signedreviews.com/widget.js" defer></script>
 </body>
 </html>
